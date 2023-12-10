@@ -44,7 +44,6 @@ def calculate_n_gram_accuracy(n, k, dataset, model, tokenizer, device):
         tokenizer.pad_token = tokenizer.eos_token if tokenizer.eos_token else '[PAD]'
 
     tokenizer.padding_side = 'left'
-    model_name = check_model_name(model)
 
     accuracies = []  # 存储每个样本的精度
 
@@ -78,7 +77,6 @@ def calculate_n_gram_accuracy(n, k, dataset, model, tokenizer, device):
                 padding="longest"
             ).to(device)
             encoding['max_new_tokens'] = n
-            
             encoding['do_sample'] = False
             gens = model.generate(**encoding)
             # print(gens)
@@ -87,22 +85,23 @@ def calculate_n_gram_accuracy(n, k, dataset, model, tokenizer, device):
             predicted_ids = gens[0, -n:].tolist()
             
             original_ids = tokenizer.convert_tokens_to_ids(tokens[start_index: start_index + n])
-            if 5 in predicted_ids:
-                if 5 in original_ids:
-                    print("ok")
-                else:
-                    print(predicted_ids, original_ids)
+            # if 5 in predicted_ids:
+            #     if 5 in original_ids:
+            #         print("ok")
+            #     else:
+            #         print(predicted_ids, original_ids)
+            sample_total_n_grams += 1
             if original_ids == predicted_ids:
                 sample_correct_n_grams += 1
-                sample_total_n_grams += 1
-                print("Pass!")
+            
+                # print("Pass!")
 
         if sample_total_n_grams > 0:
             sample_accuracy = sample_correct_n_grams / sample_total_n_grams
             accuracies.append(sample_accuracy)
     
     # 计算所有样本精度的平均值
-    return {"n_grams'": accuracies, "mean_n_grams": np.mean(accuracies)} if accuracies else 0
+    return {"n_grams": accuracies, "mean_n_grams": np.mean(accuracies)} if accuracies else 0
 
 
 def split_dataset(dataset, num_splits):
@@ -130,8 +129,23 @@ def parallel_process(n, k, dataset, model, tokenizer, device, num_processes):
 
     with multiprocessing.Pool(num_processes) as pool:
         results = pool.map(func, dataset_split)
+    
+    
+    all_n_grams = []
+    total_mean = 0
 
-    return results
+    for result in results:
+        all_n_grams.extend(result['n_grams'])
+        total_mean += result['mean_n_grams']
+
+    overall_mean = total_mean / len(results) if results else 0
+
+    combined_results = {
+        'n_grams': all_n_grams,
+        'mean_n_grams': overall_mean
+    }
+
+    return combined_results
 
 if __name__ == '__main__':
 
@@ -151,11 +165,14 @@ if __name__ == '__main__':
     multiprocessing.set_start_method('spawn', force=True)
     
     dataset_test = load_data_from_jsonl("gsm8k_test.jsonl")
+    # ds_test = {}
+    # ds_test['question'] = dataset_test['question'][:100]
+    # ds_test['answer'] = dataset_test['answer'][:100]
 
     model = AutoModel.from_pretrained(args.model_path, trust_remote_code=True)
     tokenizer = AutoTokenizer.from_pretrained(args.model_path, trust_remote_code=True)
     device = f"cuda:{args.gpu_id}"
-    model = model.to(device)
+    model = model.half().to(device)
     model.eval()
     if args.multi_processes:
         results = parallel_process(args.n, args.k, dataset_test, model, tokenizer, device, args.num_processes)
