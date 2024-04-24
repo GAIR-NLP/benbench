@@ -5,7 +5,7 @@ This is the official repository for [Benchmarking Benchmark Leakage in Large Lan
 [**Homepage**](https://gair-nlp.github.io/benbench/) |
 [**Datasets**](https://huggingface.co/datasets/GAIR/MathPile) | 
 [**Paper**](https://huggingface.co/papers/) | 
-[**Citation**](https://github.com/GAIR-NLP/MathPile?tab=readme-ov-file#citation)
+[**Citation**](https://github.com/GAIR-NLP/benbench?tab=readme-ov-file#citation)
 
 
 
