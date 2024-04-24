@@ -3,7 +3,8 @@
 This is the official repository for [Benchmarking Benchmark Leakage in Large Langauge Models]()
 
 [**Homepage**](https://gair-nlp.github.io/benbench/) |
-[**Datasets**](https://huggingface.co/datasets/GAIR/MathPile) | 
+[**HF Demo**](https://huggingface.co/spaces/GAIR/BenBench) | 
+[**Datasets**](https://huggingface.co/datasets/GAIR/) | 
 [**Paper**](https://huggingface.co/papers/) | 
 [**Citation**](https://github.com/GAIR-NLP/benbench?tab=readme-ov-file#citation)
 
