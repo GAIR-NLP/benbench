@@ -103,7 +103,7 @@ pip install -r requirements.txt
 ```
 
 
-Run the pipeline (Please specify ckpt path before running the pipeline)
+Run the pipeline (please specify the ckpt path before running the pipeline)
 
 ```
 cd src
@@ -114,7 +114,7 @@ bash ngram_acc.sh
 
 ## 🥳Citation
 
-If you find our work useful or use MathPile, please cite our paper:
+If you find our work useful, please cite our paper:
 
 ```
 
