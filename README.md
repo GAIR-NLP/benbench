@@ -9,15 +9,9 @@ This is the official repository for [Benchmarking Benchmark Leakage in Large Lan
 [**Citation**](https://github.com/GAIR-NLP/benbench?tab=readme-ov-file#citation)
 
 
-
-
-
-
-
 ## 🚀Introduction
 
 Amid the expanding use of pre-training data, the phenomenon of benchmark dataset leakage has become increasingly prominent, exacerbated by opaque training processes and the often undisclosed inclusion of supervised data in contemporary Large Language Models (LLMs). This issue skews benchmark effectiveness and fosters potentially unfair comparisons, impeding the field's healthy development.  Given that training data and model details are often opaque, and the leakage detection is influenced by various factors such as mode size and training strategies, detecting benchmark leakage is not a trivial task. In this work, we are not pursuing technical contributions in system development; instead, we are attempting to encourage the healthy development of this field, particularly through the lens of *mathematical reasoning* tasks, in the following aspects:
-
 
 
 - **Summaries of various pre-training behaviors and challenges for detecting benchmark leakage.**
@@ -81,8 +75,6 @@ We can observe that many models can all ngrams of an example from benchmark trai
 In the first case, the Qwen-1.8B model achieves perfect n-gram predictions on a sample from the GSM8K training set, completing all 5-grams accurately. This strongly suggests potential data leakage within the training set of GSM8K. Additionally, we also conducted a case study on the Aquila2-34B model, known to accidentally be exposed to the entire GSM8K test set. It consistently predicts n-grams as  "The answer is" for all instances where the ground truth was represented by a placeholder "####". This observation exactly explains why it is challenging to detect  leakage using our n-gram accuracy metric. To enhance readers' comprehension of model behaviors, we have released an interactive demo for case studies, available at <a href="https://huggingface.co/spaces/GAIR/BenBench">Huggingface Space: BenBench</a>.
 
 
-
-
 ## 📃 Recommendation for Model Documentation and Benchmarks Setup
 
 To ensure fairness in the evaluation of large language models moving forward, we propose the following suggestions:
@@ -91,7 +83,6 @@ To ensure fairness in the evaluation of large language models moving forward, we
 - **Benchmark Construction**: We recommend constructing benchmarks from the latest corpus to minimize the risk of overlap with pre-training corpora. Additionally, evaluation datasets should be regularly updated using dynamic benchmarks to guard against overfitting to static test datasets. 
 - **Benchmark Public Access**: To mitigate the risk of *Input-Output Leakage*, we advise against directly uploading original benchmarks online, particularly when they contain paired questions and answers. As suggested by Jacovi et al., 2023, encrypting the test set prior to uploading can enhance security. Alternatively, maintaining a private test set through a leaderboard format is also a viable option. 
 - **Evaluation**: We recommend caution in drawing overly optimistic conclusions about a model's capabilities based on its strong performance in specific benchmarks. It may be beneficial to evaluate the model further using a variety of contemporary challenges, such as new exam questions, to provide a more balanced assessment of its abilities. When benchmarking proprietary models, it is important to proceed with caution, especially when submitting benchmark data through APIs. There is a risk that this data could be utilized by the model's provider for further training purposes.
-
 
 
 ## 🌴How to evaluate a model using our pipeline
