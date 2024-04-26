@@ -37,11 +37,9 @@ Refer to our paper for more details.
 
 ## 🏆Leaderboard
 
-The leaderboard indicates the probability for models to enhance their capabilities by utilizing benchmark datasets.
+The relative possibility that various models conduct verbatim training to enhance their capabilities on the training set of a benchmark over the test set to enhance capabilities (measured based on PPL and N-gram Accuracy). 
 
-Blue indicates the measured method is PPL.
-
-Pink indicates the measured method is N-gram Accuracy.
+Blue indicates the measured method is based on PPL, while pink indicates the measured method is 5-gram Accuracy.
 
 Models exhibiting near-zero possibilities suggest either the absence of training and test split or the use of both splits in the training process.
 
