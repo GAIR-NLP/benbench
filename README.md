@@ -1,7 +1,5 @@
 # Benchmarking Benchmark Leakage in Large Langauge Models
 
-This is the official repository for [Benchmarking Benchmark Leakage in Large Langauge Models]()
-
 [Ruijie Xu*](https://plms.ai/people/index.html), [Zengzhi Wang*](https://tinyurl.com/zengzhi-homepage), [Run-Ze Fan*](https://RZFan525.github.io), [Pengfei Liu](https://plms.ai/people/index.html)
 
 [**Homepage**](https://gair-nlp.github.io/benbench/) |
