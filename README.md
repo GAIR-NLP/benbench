@@ -14,48 +14,40 @@ This is the official repository for [Benchmarking Benchmark Leakage in Large Lan
 ## Table of contents
 
 - [Introduction](#introduction)
-- [Detection Pipeline](#detection-pipeline)
 - [Leaderboard](#leaderboard)
 - [N-gram Accuracy Helps Instance-level Leakage Detection](#instance-level)
 - [Case Study](#case-study)
+- [Detection Pipeline](#detection-pipeline)
 - [How to evaluate a model using our pipeline](#pipeline)
 - [Citation](#citation)
 
 ## 🚀Introduction
 
-Amid the expanding use of pre-training data, the phenomenon of benchmark dataset leakage has become increasingly prominent, exacerbated by opaque training processes and the often undisclosed inclusion of supervised data in contemporary Large Language Models (LLMs). This issue skews benchmark effectiveness and fosters potentially unfair comparisons, impeding the field's healthy development.  Given that training data and model details are often opaque, and the leakage detection is influenced by various factors such as mode size and training strategies, detecting benchmark leakage is not a trivial task. In this work, we are not pursuing technical contributions in system development; instead, we are attempting to encourage the healthy development of this field, particularly through the lens of *mathematical reasoning* tasks, in the following aspects: (1) Summaries of various pre-training behaviors and challenges for detecting benchmark leakage; (2) Proposal of a detection pipeline for estimating pre-training behaviors; (3) Leakage analysis of existing models; (4) Recommendation for model documentation (i.e., introducing Benchmark Transparency Card), benchmark setup and future evaluations. 
+BenBench is designed to **ben**chmark the potential for data leakage in **bench**mark datasets, which can lead to biased and inequitable comparisons.
+In this work, we are not pursuing technical contributions in system development; instead, we are attempting to encourage the healthy development of this field, particularly through the lens of mathematical reasoning tasks, in the following aspects:
+1. Summaries of various pre-training behaviors and challenges for detecting benchmark leakage; 
+2. Proposal of a detection pipeline for estimating pre-training behaviors; 
+3. Leakage analysis of existing models; 
+4. Recommendation for model documentation (i.e., introducing Benchmark Transparency Card), benchmark setup and future evaluations.
+
+[//]: # (Amid the expanding use of pre-training data, the phenomenon of benchmark dataset leakage has become increasingly prominent, exacerbated by opaque training processes and the often undisclosed inclusion of supervised data in contemporary Large Language Models &#40;LLMs&#41;. This issue skews benchmark effectiveness and fosters potentially unfair comparisons, impeding the field's healthy development.  Given that training data and model details are often opaque, and the leakage detection is influenced by various factors such as mode size and training strategies, detecting benchmark leakage is not a trivial task. In this work, we are not pursuing technical contributions in system development; instead, we are attempting to encourage the healthy development of this field, particularly through the lens of *mathematical reasoning* tasks, in the following aspects: &#40;1&#41; Summaries of various pre-training behaviors and challenges for detecting benchmark leakage; &#40;2&#41; Proposal of a detection pipeline for estimating pre-training behaviors; &#40;3&#41; Leakage analysis of existing models; &#40;4&#41; Recommendation for model documentation &#40;i.e., introducing Benchmark Transparency Card&#41;, benchmark setup and future evaluations. )
 
 
 Refer to our paper for more details.
 
-
-## Detection Pipeline
-
-We introduce a simple, computationally efficient, and scalable pipeline that leverages two fundamental yet insightful atomic metrics: *Perplexity* and *N-gram Accuracy*. These metrics effectively encapsulate the essence of language modeling, capturing its nuances from continuous and discrete perspectives, respectively. By paraphrasing benchmarks to create varied reference versions, we can detect discrepancies in models' atomic metrics, thereby identifying potential data leakage. This pipeline's validity is supported by thorough meta-experiments.
-
-
-<figure >
-<img src="static/images/detection-pipeline.png"  alt="img21"/>
-<figcaption>
-<center><p>Overview of detection pipeline</p></center>
-</figcaption>            
-</figure>
-
-
-
-
-
-
-
 ## 🏆Leaderboard
 
-We extend our investigation to analyze existing models (i.e., 31 open-source LLMs), revealing that, in addition to previously identified leaks, many (i.e., approximately half of them), including well-known language models, may have inadvertently leveraged training data to boost their performance on mathematical reasoning tasks, leading to unfair advantages.
+The leaderboard indicates the probability for models to enhance their capabilities by utilizing benchmark datasets.
 
+Blue indicates the measured method is PPL.
+
+Pink indicates the measured method is N-gram Accuracy.
+
+Models exhibiting near-zero possibilities suggest either the absence of training and test split or the use of both splits in the training process.
 
 <figure >
   <img src="static/images/benbench-leaderboard.png"  alt="img21"/>
   <figcaption>
-    <center><p>The relative possibility that various models conduct verbatim training on the training set of a benchmark over test set to enhance capabilities (measured based on PPL and N-gram Accuracy). Models exhibiting near-zero possibilities suggest either the absence of training and test split or the use of both splits in the training process.</p></center>
   </figcaption>           
 </figure>
 
@@ -95,7 +87,17 @@ We can observe that many models can all ngrams of an example from benchmark trai
 
 In the first case, the Qwen-1.8B model achieves perfect n-gram predictions on a sample from the GSM8K training set, completing all 5-grams accurately. This strongly suggests potential data leakage within the training set of GSM8K. Additionally, we also conducted a case study on the Aquila2-34B model, known to accidentally be exposed to the entire GSM8K test set. It consistently predicts n-grams as  "The answer is" for all instances where the ground truth was represented by a placeholder "####". This observation exactly explains why it is challenging to detect  leakage using our n-gram accuracy metric. To enhance readers' comprehension of model behaviors, we have released an interactive demo for case studies, available at <a href="https://huggingface.co/spaces/GAIR/BenBench">Huggingface Space: BenBench</a>.
 
+## Detection Pipeline
 
+We introduce a simple, computationally efficient, and scalable pipeline that leverages two fundamental yet insightful atomic metrics: *Perplexity* and *N-gram Accuracy*. These metrics effectively encapsulate the essence of language modeling, capturing its nuances from continuous and discrete perspectives, respectively. By paraphrasing benchmarks to create varied reference versions, we can detect discrepancies in models' atomic metrics, thereby identifying potential data leakage. This pipeline's validity is supported by thorough meta-experiments.
+
+
+<figure >
+<img src="static/images/detection-pipeline.png"  alt="img21"/>
+<figcaption>
+<center><p>Overview of detection pipeline</p></center>
+</figcaption>            
+</figure>
 
 
 ## 🌴How to evaluate a model using our pipeline
