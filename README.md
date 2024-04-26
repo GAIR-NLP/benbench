@@ -1,4 +1,4 @@
-# Benchmarking Benchmark Leakage in Large Langauge Models
+# Benchmarking Benchmark Leakage in LLMs
 
 [Ruijie Xu*](https://plms.ai/people/index.html), [Zengzhi Wang*](https://tinyurl.com/zengzhi-homepage), [Run-Ze Fan*](https://RZFan525.github.io), [Pengfei Liu](https://plms.ai/people/index.html)
 
