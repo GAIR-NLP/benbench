@@ -13,10 +13,9 @@
 
 - [Introduction](#introduction)
 - [Leaderboard](#leaderboard)
-- [N-gram Accuracy Helps Instance-level Leakage Detection](#instance-level)
-- [Case Study](#case-study)
+- [Examples](#examples)
 - [Detection Pipeline](#detection-pipeline)
-- [How to evaluate a model using our pipeline](#pipeline)
+- [Usage](#usage)
 - [Citation](#citation)
 
 ## 🚀Introduction
@@ -47,9 +46,10 @@ Models exhibiting near-zero possibilities suggest either the absence of training
   </figcaption>           
 </figure>
 
+## 📚Examples
 
-## 📊 N-gram Accuracy Helps Instance-level Leakage Detection
-<span id="instance-level"></span>
+[//]: # (## 📊Instance-level Leakage Detection)
+[//]: # (<span id="instance-level"></span>)
 
 <img src="static/images/ngram_demo.gif"  alt="img21"/>
 
@@ -70,7 +70,7 @@ We can observe that many models can all ngrams of an example from benchmark trai
 
 
 
-## 📚Case Study
+
 
 <figure >
   <img src="static/images/case_study.png"  alt="img21"/>
@@ -96,8 +96,7 @@ We introduce a simple, computationally efficient, and scalable pipeline that lev
 </figure>
 
 
-## 🌴How to evaluate a model using our pipeline
-<span id="pipeline"></span>
+## 🌴Usage
 
 Install dependencies
 
