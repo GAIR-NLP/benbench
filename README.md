@@ -14,6 +14,7 @@ This is the official repository for [Benchmarking Benchmark Leakage in Large Lan
 Amid the expanding use of pre-training data, the phenomenon of benchmark dataset leakage has become increasingly prominent, exacerbated by opaque training processes and the often undisclosed inclusion of supervised data in contemporary Large Language Models (LLMs). This issue skews benchmark effectiveness and fosters potentially unfair comparisons, impeding the field's healthy development.  Given that training data and model details are often opaque, and the leakage detection is influenced by various factors such as mode size and training strategies, detecting benchmark leakage is not a trivial task. In this work, we are not pursuing technical contributions in system development; instead, we are attempting to encourage the healthy development of this field, particularly through the lens of *mathematical reasoning* tasks, in the following aspects: (1) Summaries of various pre-training behaviors and challenges for detecting benchmark leakage; (2) Proposal of a detection pipeline for estimating pre-training behaviors; (3) Leakage analysis of existing models; (4) Recommendation for model documentation (i.e., introducing Benchmark Transparency Card), benchmark setup and future evaluations. 
 
 
+Refer to our paper for more details.
 
 
 ## Detection Pipeline
