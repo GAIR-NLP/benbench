@@ -9,6 +9,16 @@ This is the official repository for [Benchmarking Benchmark Leakage in Large Lan
 [**Citation**](https://github.com/GAIR-NLP/benbench?tab=readme-ov-file#citation)
 
 
+## Table of contents
+
+- [Introduction](#introduction)
+- [Detection Pipeline](#detection-pipeline)
+- [Leaderboard](#leaderboard)
+- [N-gram Accuracy Helps Instance-level Leakage Detection](#instance-level)
+- [Case Study](#case-study)
+- [How to evaluate a model using our pipeline](#pipeline)
+- [Citation](#citation)
+
 ## 🚀Introduction
 
 Amid the expanding use of pre-training data, the phenomenon of benchmark dataset leakage has become increasingly prominent, exacerbated by opaque training processes and the often undisclosed inclusion of supervised data in contemporary Large Language Models (LLMs). This issue skews benchmark effectiveness and fosters potentially unfair comparisons, impeding the field's healthy development.  Given that training data and model details are often opaque, and the leakage detection is influenced by various factors such as mode size and training strategies, detecting benchmark leakage is not a trivial task. In this work, we are not pursuing technical contributions in system development; instead, we are attempting to encourage the healthy development of this field, particularly through the lens of *mathematical reasoning* tasks, in the following aspects: (1) Summaries of various pre-training behaviors and challenges for detecting benchmark leakage; (2) Proposal of a detection pipeline for estimating pre-training behaviors; (3) Leakage analysis of existing models; (4) Recommendation for model documentation (i.e., introducing Benchmark Transparency Card), benchmark setup and future evaluations. 
@@ -49,6 +59,7 @@ We extend our investigation to analyze existing models (i.e., 31 open-source LLM
 
 
 ## 📊 N-gram Accuracy Helps Instance-level Leakage Detection
+<span id="instance-level"></span>
 
 <img src="static/images/ngram_demo.gif"  alt="img21"/>
 
@@ -69,7 +80,7 @@ We can observe that many models can all ngrams of an example from benchmark trai
 
 
 
-## 📚 Case Study
+## 📚Case Study
 
 <figure >
   <img src="static/images/case_study.png"  alt="img21"/>
@@ -86,6 +97,7 @@ In the first case, the Qwen-1.8B model achieves perfect n-gram predictions on a 
 
 
 ## 🌴How to evaluate a model using our pipeline
+<span id="pipeline"></span>
 
 Install dependencies
 
