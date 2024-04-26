@@ -157,7 +157,8 @@
                 <a href="https://huggingface.co/datasets/GAIR/benbench" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="far fa-images"></i>
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
                   </span>
                   <span>Datasets</span>
                 </a>
@@ -167,7 +168,8 @@
                 <a href="https://huggingface.co/spaces/GAIR/BenBench" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="far fa-images"></i>
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
                   </span>
                   <span>Demo</span>
                 </a>
@@ -280,6 +282,11 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">📊 N-gram Accuracy Helps Instance-level Leakage Detection</h2>
         <div class="content has-text-justified">
+          
+          <p></p>
+          <img src="static/images/ngram_demo.gif"  alt="img21"/>
+          <p></p>
+
           <p>
             High prediction accuracy for each n-gram of an example's prediction suggests a high probability that the sample was encountered during the training process. To investigate instance-level leakage, we looked closer at n-gram predictions across different models. Additionally, considering that benchmark data may undergo reformatting, paraphrasing, or other modifications when integrated into model training, we leverage lenient metrics, such as ROUGE-L and edit distance similarity, for comparing n-grams. Under this context, an instance is deemed correctly predicted if it achieves an Exact Match (meaning all predictions align perfectly), or if the edit distance similarity of all predictions exceeds 0.9 (indicating substantial similarity), and further, if the ROUGE-L score of all predictions surpasses 0.75.
           </p>
