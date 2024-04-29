@@ -194,100 +194,15 @@
     </div>
   </section>
 
-
-
-
-
-
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">🚀 Brief Introduction</h2>
-          <div class="content has-text-justified">
-            <p>
-              Amid the expanding use of pre-training data, the phenomenon of benchmark dataset leakage has become
-              increasingly prominent, exacerbated by opaque training processes and the often undisclosed inclusion of
-              supervised data in contemporary Large Language Models (LLMs). This issue skews benchmark effectiveness and
-              fosters potentially unfair comparisons, impeding the field's healthy development. Given that training data
-              and model details are often opaque, and the leakage detection is influenced by various factors such as
-              mode size and training strategies, detecting benchmark leakage is not a trivial task. In this work, we are
-              not pursuing technical contributions in system development; instead, we are attempting to encourage the
-              healthy development of this field, particularly through the lens of <i>mathematical reasoning</i> tasks,
-              in the following aspects:
-            </p>
-
-            <ul>
-              <li><b>Summaries of various pre-training behaviors and challenges for detecting benchmark leakage.</b>
-              </li>
-              <li><b>Proposal of a detection pipeline for estimating pre-training behaviors</b>: We introduce a simple,
-                computationally efficient, and scalable pipeline that leverages two fundamental yet insightful atomic
-                metrics: <i>Perplexity</i> and <i>N-gram Accuracy</i>. These metrics effectively encapsulate the essence
-                of language modeling, capturing its nuances from continuous and discrete perspectives, respectively. By
-                paraphrasing benchmarks to create varied reference versions, we can detect discrepancies in models'
-                atomic metrics, thereby identifying potential data leakage. This pipeline's validity is supported by
-                thorough meta-experiments. </li>
-
-              <p></p>
-              <!-- <div align="center" width=85%>
-            <img src="static/images/detection-pipeline.png" />
-            </div>
-            <p></p> -->
-
-              <figure>
-                <img src="static/images/detection-pipeline.png" alt="img21" />
-                <figcaption>
-                  <p>Overview of detection pipeline</p>
-                </figcaption>
-              </figure>
-
-
-              <li><b>Leakage analysis of existing models: </b>We extend our investigation to analyze existing models
-                (i.e., 31 open-source LLMs), revealing that, in addition to previously identified leaks, many (i.e.,
-                approximately half of them), including well-known language models, may have inadvertently leveraged
-                training data to boost their performance on mathematical reasoning tasks, leading to unfair advantages.
-                Moreover, our metric even enables instance-level detection, revealing the possibility of test set leaks
-                in many models. For example, we found that Qwen-1.8B can accurately predict all 5-grams in 223 examples
-                from the GSM8K training set and 67 from the MATH training set, with an additional 25 correct predictions
-                even in the MATH test set. </li>
-              <li><b>Recommendation for model documentation, benchmark setup and future evaluations: </b>Based on these
-                findings, we offer suggestions encompassing model documentation, benchmark construction, public access
-                to benchmarks, and evaluation from multiple perspectives. We particularly emphasize the aspect of model
-                documentation; we recommend that models should be accompanied by a document at release, which registers
-                whether benchmark data was used for specific performance enhancement and whether any data augmentation
-                was conducted. To this end, we introduce the <b>Benchmark Transparency Card</b> to facilitate this
-                process, hoping that it will be widely adopted to promote transparency and healthy development of LLMs.
-              </li>
-            </ul>
-
-          </div>
-        </div>
-      </div>
-      <!--/ Abstract. -->
-
-      <!-- Paper video. -->
-      <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-      <!--/ Paper video. -->
-    </div>
-  </section>
-
-
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">🏆Leaderboard</h2>
           <div class="content has-text-justified">
+            <p>
+              Due to the opacity of the training process, comparing large language models (LLMs) directly introduces a potential unfairness, thus impacting the healthy development of the field of LLMs.</p>
+              <p>This leaderboard shows the relative possibility that various models conduct verbatim training on the training set of a benchmark over test set to enhance capabilities (measured based on PPL and N-gram Accuracy). Models exhibiting near-zero possibilities suggest either the absence of training and test split or the use of both splits in the training process. <b>This metric does not imply cheating, but rather indicates the potential use of the benchmark data during the (pre-)training phase; while using benchmarks to enhance capabilities is acceptable, the lack of relevant documentation can reduce transparency, potentially resulting in unfair comparisons and hindering the field's healthy development.</b></p>
             <div style="display: flex; justify-content: space-around; width: 100%;">
               <div>
                 <h3>GSM8K</h3>
@@ -659,6 +574,94 @@
 
       </div>
   </section>
+
+
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">🚀 Brief Introduction</h2>
+          <div class="content has-text-justified">
+            <p>
+              Amid the expanding use of pre-training data, the phenomenon of benchmark dataset leakage has become
+              increasingly prominent, exacerbated by opaque training processes and the often undisclosed inclusion of
+              supervised data in contemporary Large Language Models (LLMs). This issue skews benchmark effectiveness and
+              fosters potentially unfair comparisons, impeding the field's healthy development. Given that training data
+              and model details are often opaque, and the leakage detection is influenced by various factors such as
+              mode size and training strategies, detecting benchmark leakage is not a trivial task. In this work, we are
+              not pursuing technical contributions in system development; instead, we are attempting to encourage the
+              healthy development of this field, particularly through the lens of <i>mathematical reasoning</i> tasks,
+              in the following aspects:
+            </p>
+
+            <ul>
+              <li><b>Summaries of various pre-training behaviors and challenges for detecting benchmark leakage.</b>
+              </li>
+              <li><b>Proposal of a detection pipeline for estimating pre-training behaviors</b>: We introduce a simple,
+                computationally efficient, and scalable pipeline that leverages two fundamental yet insightful atomic
+                metrics: <i>Perplexity</i> and <i>N-gram Accuracy</i>. These metrics effectively encapsulate the essence
+                of language modeling, capturing its nuances from continuous and discrete perspectives, respectively. By
+                paraphrasing benchmarks to create varied reference versions, we can detect discrepancies in models'
+                atomic metrics, thereby identifying potential data leakage. This pipeline's validity is supported by
+                thorough meta-experiments. </li>
+
+              <p></p>
+              <!-- <div align="center" width=85%>
+            <img src="static/images/detection-pipeline.png" />
+            </div>
+            <p></p> -->
+
+              <figure>
+                <img src="static/images/detection-pipeline.png" alt="img21" />
+                <figcaption>
+                  <p>Overview of detection pipeline</p>
+                </figcaption>
+              </figure>
+
+
+              <li><b>Leakage analysis of existing models: </b>We extend our investigation to analyze existing models
+                (i.e., 31 open-source LLMs), revealing that, in addition to previously identified leaks, many (i.e.,
+                approximately half of them), including well-known language models, may have inadvertently leveraged
+                training data to boost their performance on mathematical reasoning tasks, leading to unfair advantages.
+                Moreover, our metric even enables instance-level detection, revealing the possibility of test set leaks
+                in many models. For example, we found that Qwen-1.8B can accurately predict all 5-grams in 223 examples
+                from the GSM8K training set and 67 from the MATH training set, with an additional 25 correct predictions
+                even in the MATH test set. </li>
+              <li><b>Recommendation for model documentation, benchmark setup and future evaluations: </b>Based on these
+                findings, we offer suggestions encompassing model documentation, benchmark construction, public access
+                to benchmarks, and evaluation from multiple perspectives. We particularly emphasize the aspect of model
+                documentation; we recommend that models should be accompanied by a document at release, which registers
+                whether benchmark data was used for specific performance enhancement and whether any data augmentation
+                was conducted. To this end, we introduce the <b>Benchmark Transparency Card</b> to facilitate this
+                process, hoping that it will be widely adopted to promote transparency and healthy development of LLMs.
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+
+  
 
 
 
