@@ -11,7 +11,6 @@
 ## Table of contents
 
 - [Benchmarking Benchmark Leakage in LLMs](#benchmarking-benchmark-leakage-in-llms)
-  - [Table of contents](#table-of-contents)
   - [🚀Introduction](#introduction)
   - [🏆Leaderboard](#leaderboard)
   - [📚Examples](#examples)
