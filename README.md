@@ -4,19 +4,20 @@
 
 [**Homepage**](https://gair-nlp.github.io/benbench/) |
 [**HF Demo**](https://huggingface.co/spaces/GAIR/BenBench) | 
-[**Datasets**](https://huggingface.co/datasets/GAIR/) | 
 [**Paper**](https://huggingface.co/papers/) | 
 [**Citation**](https://github.com/GAIR-NLP/benbench?tab=readme-ov-file#citation)
 
 
 ## Table of contents
 
-- [Introduction](#introduction)
-- [Leaderboard](#leaderboard)
-- [Examples](#examples)
-- [Detection Pipeline](#detection-pipeline)
-- [Usage](#usage)
-- [Citation](#citation)
+- [Benchmarking Benchmark Leakage in LLMs](#benchmarking-benchmark-leakage-in-llms)
+  - [Table of contents](#table-of-contents)
+  - [🚀Introduction](#introduction)
+  - [🏆Leaderboard](#leaderboard)
+  - [📚Examples](#examples)
+  - [Detection Pipeline](#detection-pipeline)
+  - [🌴Usage](#usage)
+  - [🥳Citation](#citation)
 
 ## 🚀Introduction
 
