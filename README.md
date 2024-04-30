@@ -4,7 +4,7 @@
 
 [**Homepage**](https://gair-nlp.github.io/benbench/) |
 [**HF Demo**](https://huggingface.co/spaces/GAIR/BenBench) | 
-[**Paper**](https://huggingface.co/papers/) | 
+[**Paper**](https://arxiv.org/abs/2404.18824) | 
 [**Citation**](https://github.com/GAIR-NLP/benbench?tab=readme-ov-file#citation)
 
 
@@ -119,6 +119,11 @@ bash ngram_acc.sh
 If you find our work useful, please cite our paper:
 
 ```
-
-
+@article{xu2024benchmarking,
+      title={Benchmarking Benchmark Leakage in Large Language Models}, 
+      author={Xu, Ruijie and Wang, Zengzhi and Fan, Run-Ze and Liu, Pengfei},
+      year={2024},
+      journal={arXiv preprint arXiv:2404.18824},
+      url={https://arxiv.org/abs/2404.18824}
+}
 ```
