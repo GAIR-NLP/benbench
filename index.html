@@ -156,8 +156,8 @@
                   <a href="https://huggingface.co/datasets/GAIR/benbench" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"> -->
-                      <!-- <i class="far fa-images"></i> -->
-                      <!-- <p style="font-size:18px">🤗</p>
+                <!-- <i class="far fa-images"></i> -->
+                <!-- <p style="font-size:18px">🤗</p>
                     </span>
                     <span>Datasets</span>
                   </a>
@@ -177,14 +177,14 @@
 
                 <!-- Twitter Link. -->
                 <span class="link-block">
-                <a href="https://twitter.com/SinclairWang1/status/1785298912942948633" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
+                  <a href="https://twitter.com/SinclairWang1/status/1785298912942948633" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
                       <i class="fab fa-twitter"></i>
-                  </span>
-                  <span>Twitter</span>
-                </a>
-              </span>
+                    </span>
+                    <span>Twitter</span>
+                  </a>
+                </span>
               </div>
 
             </div>
@@ -201,8 +201,16 @@
           <h2 class="title is-3">🏆Leaderboard</h2>
           <div class="content has-text-justified">
             <p>
-              Due to the opacity of the training process, comparing large language models (LLMs) directly introduces a potential unfairness, thus impacting the healthy development of the field of LLMs.</p>
-              <p>This leaderboard shows the relative possibility that various models conduct verbatim training on the training set of a benchmark over test set to enhance capabilities (measured based on PPL and N-gram Accuracy). Models exhibiting near-zero possibilities suggest either the absence of training and test split or the use of both splits in the training process. <b>This metric does not imply cheating, but rather indicates the potential use of the benchmark data during the (pre-)training phase; while using benchmarks to enhance capabilities is acceptable, the lack of relevant documentation can reduce transparency, potentially resulting in unfair comparisons and hindering the field's healthy development.</b></p>
+              Due to the opacity of the training process, comparing large language models (LLMs) directly introduces a
+              potential unfairness, thus impacting the healthy development of the field of LLMs.</p>
+            <p>This leaderboard shows the relative possibility that various models conduct verbatim training on the
+              training set of a benchmark over test set to enhance capabilities (measured based on PPL and N-gram
+              Accuracy). Models exhibiting near-zero possibilities suggest either the absence of training and test split
+              or the use of both splits in the training process. <b>This metric does not imply cheating, but rather
+                indicates the potential use of the benchmark data during the (pre-)training phase; while using
+                benchmarks to enhance capabilities is acceptable, the lack of relevant documentation can reduce
+                transparency, potentially resulting in unfair comparisons and hindering the field's healthy
+                development.</b></p>
             <div style="display: flex; justify-content: space-around; width: 100%;">
               <div>
                 <h3>GSM8K</h3>
@@ -234,6 +242,16 @@
                     <td style="text-align: right;">64.75</td>
                   </tr>
                   <tr>
+                    <td>Qwen1.5-7B</td>
+                    <td style="text-align: right;">27.38</td>
+                    <td style="text-align: right;">48.78</td>
+                  </tr>
+                  <tr>
+                    <td>Qwen1.5-14B</td>
+                    <td style="text-align: right;">25.62</td>
+                    <td style="text-align: right;">40.24</td>
+                  </tr>
+                  <tr>
                     <td>Aquila2-34B</td>
                     <td style="text-align: right;">23.12</td>
                     <td style="text-align: right;">39.78</td>
@@ -247,6 +265,11 @@
                     <td>Qwen-7B</td>
                     <td style="text-align: right;">35.54</td>
                     <td style="text-align: right;">25.81</td>
+                  </tr>
+                  <tr>
+                    <td>Qwen1.5-1.8B</td>
+                    <td style="text-align: right;">25.17</td>
+                    <td style="text-align: right;">17.59</td>
                   </tr>
                   <tr>
                     <td>ChatGLM2-6B</td>
@@ -414,6 +437,21 @@
                     <td>InternLM2-7B</td>
                     <td style="text-align: right;">17.67</td>
                     <td style="text-align: right;">45.22</td>
+                  </tr>
+                  <tr>
+                    <td>Qwen1.5-1.8B</td>
+                    <td style="text-align: right;">8.08</td>
+                    <td style="text-align: right;">23.11</td>
+                  </tr>
+                  <tr>
+                    <td>Qwen1.5-7B</td>
+                    <td style="text-align: right;">4.74</td>
+                    <td style="text-align: right;">25.32</td>
+                  </tr>
+                  <tr>
+                    <td>Qwen1.5-14B</td>
+                    <td style="text-align: right;">5.06</td>
+                    <td style="text-align: right;">22.20</td>
                   </tr>
                   <tr>
                     <td>Qwen-14B</td>
@@ -661,7 +699,7 @@
   </section>
 
 
-  
+
 
 
 
@@ -699,7 +737,14 @@
             </figure>
 
 
-            <p>We can observe that many models can pricisely predict all ngrams of an example from benchmark training set even test set.          Surprisingly, Qwen-1.8B can accurately predict all 5-grams in 223 examples from the GSM8K training set and 67 from the MATH training set, with an additional 25 correct predictions even in the MATH test set. We               would like to emphasize that the n-gram accuracy metric can mitigate issues in our detection pipeline,  particularly when the training and test datasets are simultaneously leaked and remain undetected. However,           this also has its limitations; it can only detect examples that are integrated into the model training in               their original format and wording, unless we know the organizational format of the training data used by               the model in advance.
+            <p>We can observe that many models can pricisely predict all ngrams of an example from benchmark training
+              set even test set. Surprisingly, Qwen-1.8B can accurately predict all 5-grams in 223 examples from the
+              GSM8K training set and 67 from the MATH training set, with an additional 25 correct predictions even in
+              the MATH test set. We would like to emphasize that the n-gram accuracy metric can mitigate issues in our
+              detection pipeline, particularly when the training and test datasets are simultaneously leaked and remain
+              undetected. However, this also has its limitations; it can only detect examples that are integrated into
+              the model training in their original format and wording, unless we know the organizational format of the
+              training data used by the model in advance.
             </p>
 
           </div>
