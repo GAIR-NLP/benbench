@@ -7,8 +7,8 @@
 [**Paper**](https://arxiv.org/abs/2404.18824) | 
 [**Citation**](https://github.com/GAIR-NLP/benbench?tab=readme-ov-file#citation)
 
-## News
-- May 2024: We update Qwen1.5 series (1.8B, 7B, 14B) data on our Homepage.
+## 🔥 News
+- [2024/05/08]: We updated the Qwen1.5 series (1.8B, 7B, 14B) results on our [Homepage Leaderboard](https://gair-nlp.github.io/benbench/).
 
 ## Table of contents
 
