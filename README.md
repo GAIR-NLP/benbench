@@ -8,6 +8,7 @@
 [**Citation**](https://github.com/GAIR-NLP/benbench?tab=readme-ov-file#citation)
 
 ## 🔥 News
+- [2024/05/20]: We updated the Yi1.5 series (6B, 34B) results on our [Homepage Leaderboard](https://gair-nlp.github.io/benbench/).
 - [2024/05/08]: We updated the Qwen1.5 series (1.8B, 7B, 14B) results on our [Homepage Leaderboard](https://gair-nlp.github.io/benbench/).
 
 ## Table of contents
